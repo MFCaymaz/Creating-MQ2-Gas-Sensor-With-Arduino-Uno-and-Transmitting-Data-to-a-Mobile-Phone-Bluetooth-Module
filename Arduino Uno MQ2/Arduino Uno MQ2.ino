@@ -40,13 +40,13 @@ void loop() {
 8 
  if (gasValue > 250) { 
  char gasValue = bluetooth.read(); 
- bluetooth.println("GAZ_VAR "); 
+ bluetooth.println("GAS DETECTED "); 
  bluetooth.flush(); 
  delay(2000); 
  } 
  else { 
  char gasValue = bluetooth.read();  
- bluetooth.println("GAZ_YOK "); 
+ bluetooth.println("NO GAS "); 
  bluetooth.flush(); 
  delay(2000); 
  } 

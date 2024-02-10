@@ -37,7 +37,7 @@ void loop() {
  delay(500); 
  } 
 
-8 
+ 
  if (gasValue > 250) { 
  char gasValue = bluetooth.read(); 
  bluetooth.println("GAS DETECTED "); 

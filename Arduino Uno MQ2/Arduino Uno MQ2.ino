@@ -1,17 +1,17 @@
 #include <SoftwareSerial.h> 
 
-const int gazSensorPin = A0; 
-const int kirmiziLEDPin = 13; 
-const int yesilLEDPin = 12; 
+const int gasSensorPin = A0; 
+const int redLEDPin = 13; 
+const int greenLEDPin = 12; 
 const int buzzerPin = 11; 
 const int bluetoothPin = (2, 3) ; 
 
 SoftwareSerial bluetooth(2, 3); 
 void setup() { 
 
- pinMode(gazSensorPin, INPUT); 
- pinMode(kirmiziLEDPin, OUTPUT); 
- pinMode(yesilLEDPin, OUTPUT); 
+ pinMode(gasSensorPin, INPUT); 
+ pinMode(redLEDPin, OUTPUT); 
+ pinMode(greenLEDPin, OUTPUT); 
  pinMode(buzzerPin, OUTPUT); 
  pinMode(bluetoothPin, OUTPUT); 
  
@@ -19,33 +19,33 @@ void setup() {
 } 
 void loop() { 
 
- int gazDegeri = analogRead(gazSensorPin); 
+ int gasValue = analogRead(gasSensorPin); 
 
- if (gazDegeri > 250) { 
- digitalWrite(kirmiziLEDPin, HIGH); 
+ if (gasValue > 250) { 
+ digitalWrite(redLEDPin, HIGH); 
  digitalWrite(buzzerPin, HIGH); 
  delay(500); 
- digitalWrite(kirmiziLEDPin, LOW); 
+ digitalWrite(redLEDPin, LOW); 
  digitalWrite(buzzerPin, LOW); 
  delay(500); 
  } 
 
  else { 
- digitalWrite(yesilLEDPin, HIGH); 
+ digitalWrite(greenLEDPin, HIGH); 
  delay(500); 
- digitalWrite(yesilLEDPin, LOW); 
+ digitalWrite(greenLEDPin, LOW); 
  delay(500); 
  } 
 
 8 
- if (gazDegeri > 250) { 
- char gazDegeri = bluetooth.read(); 
+ if (gasValue > 250) { 
+ char gasValue = bluetooth.read(); 
  bluetooth.println("GAZ_VAR "); 
  bluetooth.flush(); 
  delay(2000); 
  } 
  else { 
- char gazDegeri = bluetooth.read();  
+ char gasValue = bluetooth.read();  
  bluetooth.println("GAZ_YOK "); 
  bluetooth.flush(); 
  delay(2000); 
